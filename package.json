@@ -8,8 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "reverse": "adb reverse tcp:7007 tcp:7007; adb reverse tcp:8001 tcp:8001",
+    "storybook": "yarn reverse; start-storybook | STORYBOOK=true yarn start"
   },
   "dependencies": {
     "react": "17.0.2",
