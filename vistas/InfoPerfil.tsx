@@ -1,37 +1,41 @@
 import React from 'react';
-import {Text, View, TextInput, StyleSheet} from 'react-native';
+import {Text, View, TextInput} from 'react-native';
+import styled from 'styled-components/native';
 
 export const InfoPerfil = () => {
   return (
     <View>
       <Text>Cargá tu información de perfil</Text>
-      <View style={styles.filaFormulario}>
+      <FilaFormulario>
         <Text>Nombre</Text>
-        <TextInput style={styles.inputNombre} maxLength={40} />
-      </View>
-      <View style={styles.filaFormulario}>
+        <InputTexto maxLength={40} />
+      </FilaFormulario>
+      <FilaFormulario>
         <Text>Edad</Text>
-        <TextInput style={styles.inputNombre} maxLength={3} />
-      </View>
-      <View style={styles.filaFormulario}>
+        <InputTexto maxLength={3} />
+      </FilaFormulario>
+      <FilaFormulario>
         <Text>Mail</Text>
-        <TextInput style={styles.inputNombre} maxLength={40} />
-      </View>
-      <View style={styles.filaFormulario}>
+        <InputTexto maxLength={40} />
+      </FilaFormulario>
+      <FilaFormulario>
         <Text>Teléfono</Text>
-        <TextInput style={styles.inputNombre} maxLength={40} />
-      </View>
+        <InputTexto maxLength={40} />
+      </FilaFormulario>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  filaFormulario: {flexDirection: 'row', marginTop: 20, alignItems: 'center'},
-  inputNombre: {
-    borderColor: '#000000',
-    borderWidth: 1,
-    marginLeft: 15,
-    height: 35,
-    width: 100,
-  },
+const FilaFormulario = styled(View)({
+  flexDirection: 'row',
+  marginTop: 20,
+  alignItems: 'center',
+});
+
+const InputTexto = styled(TextInput)({
+  borderColor: '#000000',
+  borderWidth: 1,
+  marginLeft: 15,
+  height: 35,
+  width: 100,
 });
