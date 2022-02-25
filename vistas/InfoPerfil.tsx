@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
 import styled from 'styled-components/native';
 import RadioGroup, {RadioButtonProps} from 'react-native-radio-buttons-group';
+import {Picker} from '@react-native-community/picker';
 
 const radioButtonSexoData: RadioButtonProps[] = [
   {
@@ -37,11 +38,15 @@ export const InfoPerfil = () => {
     RadioButtonProps[]
   >(radioButtonUbicacionData);
 
+  const [localidadSeleccionada, setLocalidadSeleccionada] = useState();
+
   const onPressRadioButtonSexo = (radioButtonsArray: RadioButtonProps[]) => {
     setRadioButtonSexo(radioButtonsArray);
   };
 
-  const onPressRadioButtonUbicacion = (radioButtonsArray: RadioButtonProps[]) => {
+  const onPressRadioButtonUbicacion = (
+    radioButtonsArray: RadioButtonProps[],
+  ) => {
     setRadioButtonUbicacion(radioButtonsArray);
   };
 
@@ -74,6 +79,12 @@ export const InfoPerfil = () => {
         layout="row"
         onPress={onPressRadioButtonUbicacion}
       />
+      <Picker
+        selectedValue={localidadSeleccionada}
+        onValueChange={(itemValue: any) => setLocalidadSeleccionada(itemValue)}>
+        <Picker.Item label="Palermou" value="palermo" />
+        <Picker.Item label="La Matanza" value="mordor" />
+      </Picker>
     </View>
   );
 };

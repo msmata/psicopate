@@ -13,6 +13,7 @@
     "storybook": "yarn reverse; start-storybook | STORYBOOK=true yarn start"
   },
   "dependencies": {
+    "@react-native-community/picker": "^1.8.1",
     "@types/styled-components": "^5.1.23",
     "@types/styled-components-react-native": "^5.1.3",
     "react": "17.0.2",
