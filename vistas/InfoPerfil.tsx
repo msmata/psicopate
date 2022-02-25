@@ -16,12 +16,33 @@ const radioButtonSexoData: RadioButtonProps[] = [
   },
 ];
 
+const radioButtonUbicacionData: RadioButtonProps[] = [
+  {
+    id: '1',
+    label: 'CABA',
+    value: 'CABA',
+  },
+  {
+    id: '2',
+    label: 'GBA',
+    value: 'GBA',
+  },
+];
+
 export const InfoPerfil = () => {
   const [radioButtonSexo, setRadioButtonSexo] =
     useState<RadioButtonProps[]>(radioButtonSexoData);
 
+  const [radioButtonUbicacion, setRadioButtonUbicacion] = useState<
+    RadioButtonProps[]
+  >(radioButtonUbicacionData);
+
   const onPressRadioButtonSexo = (radioButtonsArray: RadioButtonProps[]) => {
     setRadioButtonSexo(radioButtonsArray);
+  };
+
+  const onPressRadioButtonUbicacion = (radioButtonsArray: RadioButtonProps[]) => {
+    setRadioButtonUbicacion(radioButtonsArray);
   };
 
   return (
@@ -31,6 +52,11 @@ export const InfoPerfil = () => {
         <Text>Nombre</Text>
         <InputTexto maxLength={40} />
       </FilaFormulario>
+      <RadioGroup
+        radioButtons={radioButtonSexo}
+        layout="row"
+        onPress={onPressRadioButtonSexo}
+      />
       <FilaFormulario>
         <Text>Edad</Text>
         <InputTexto maxLength={3} />
@@ -44,9 +70,9 @@ export const InfoPerfil = () => {
         <InputTexto maxLength={40} />
       </FilaFormulario>
       <RadioGroup
-        radioButtons={radioButtonSexo}
+        radioButtons={radioButtonUbicacion}
         layout="row"
-        onPress={onPressRadioButtonSexo}
+        onPress={onPressRadioButtonUbicacion}
       />
     </View>
   );
