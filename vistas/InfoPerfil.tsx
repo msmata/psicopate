@@ -1,8 +1,50 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, TextInput} from 'react-native';
 import styled from 'styled-components/native';
+import RadioGroup, {RadioButtonProps} from 'react-native-radio-buttons-group';
+
+const radioButtonSexoData: RadioButtonProps[] = [
+  {
+    id: '1',
+    label: 'Femenino',
+    value: 'F',
+  },
+  {
+    id: '2',
+    label: 'Masculino',
+    value: 'M',
+  },
+];
+
+const radioButtonUbicacionData: RadioButtonProps[] = [
+  {
+    id: '1',
+    label: 'CABA',
+    value: 'CABA',
+  },
+  {
+    id: '2',
+    label: 'GBA',
+    value: 'GBA',
+  },
+];
 
 export const InfoPerfil = () => {
+  const [radioButtonSexo, setRadioButtonSexo] =
+    useState<RadioButtonProps[]>(radioButtonSexoData);
+
+  const [radioButtonUbicacion, setRadioButtonUbicacion] = useState<
+    RadioButtonProps[]
+  >(radioButtonUbicacionData);
+
+  const onPressRadioButtonSexo = (radioButtonsArray: RadioButtonProps[]) => {
+    setRadioButtonSexo(radioButtonsArray);
+  };
+
+  const onPressRadioButtonUbicacion = (radioButtonsArray: RadioButtonProps[]) => {
+    setRadioButtonUbicacion(radioButtonsArray);
+  };
+
   return (
     <View>
       <Text>Cargá tu información de perfil</Text>
@@ -10,6 +52,11 @@ export const InfoPerfil = () => {
         <Text>Nombre</Text>
         <InputTexto maxLength={40} />
       </FilaFormulario>
+      <RadioGroup
+        radioButtons={radioButtonSexo}
+        layout="row"
+        onPress={onPressRadioButtonSexo}
+      />
       <FilaFormulario>
         <Text>Edad</Text>
         <InputTexto maxLength={3} />
@@ -22,6 +69,11 @@ export const InfoPerfil = () => {
         <Text>Teléfono</Text>
         <InputTexto maxLength={40} />
       </FilaFormulario>
+      <RadioGroup
+        radioButtons={radioButtonUbicacion}
+        layout="row"
+        onPress={onPressRadioButtonUbicacion}
+      />
     </View>
   );
 };
