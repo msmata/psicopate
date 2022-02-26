@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, Button} from 'react-native';
 import styled from 'styled-components/native';
 import RadioGroup, {RadioButtonProps} from 'react-native-radio-buttons-group';
 import {Picker} from '@react-native-community/picker';
@@ -85,6 +85,7 @@ export const InfoPerfil = () => {
         <Picker.Item label="Palermou" value="palermo" />
         <Picker.Item label="La Matanza" value="mordor" />
       </Picker>
+      <Button title="Continuar" />
     </View>
   );
 };
